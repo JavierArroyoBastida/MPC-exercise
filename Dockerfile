@@ -9,11 +9,8 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 ENV PYTHONPATH $PYTHONPATH:$JMODELICA_HOME/Python:$JMODELICA_HOME/Python/pymodelica
 
 USER developer
-
 WORKDIR $HOME
-
 RUN pip install --user --no-cache-dir notebook==5.*
-
 RUN pip install --user pandas
 
 
