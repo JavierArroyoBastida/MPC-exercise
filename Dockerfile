@@ -12,7 +12,7 @@ USER developer
 
 WORKDIR $HOME
 
-RUN pip install --no-cache-dir notebook==5.*
+RUN pip install --user --no-cache-dir notebook==5.*
 
 RUN pip install --user pandas
 
