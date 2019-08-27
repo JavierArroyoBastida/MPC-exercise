@@ -13,5 +13,5 @@ USER developer
 WORKDIR $HOME
 RUN pip install --user --no-cache-dir notebook==5.*
 RUN pip install --user pandas
-RUN pip install ipykernel==4.7.0
+RUN pip install --user ipykernel==4.7.0
 
