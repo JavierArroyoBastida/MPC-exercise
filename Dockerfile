@@ -7,25 +7,19 @@ ENV SUNDIALS_HOME $JMODELICA_HOME/ThirdParty/Sundials
 ENV SEPARATE_PROCESS_JVM /usr/lib/jvm/java-8-openjdk-amd64/
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 ENV PYTHONPATH $PYTHONPATH:$JMODELICA_HOME/Python:$JMODELICA_HOME/Python/pymodelica
-ENV PATH="/home/jovyan/.local/bin:${PATH}"
+ENV PATH="/home/developer/.local/bin:${PATH}"
 
-ARG NB_USER=jovyan
-ENV USER ${NB_USER}
-ENV NB_UID ${NB_UID}
-ENV HOME /home/${NB_USER}
+ENV HOME /home/developer
 
 USER root
-RUN adduser --disabled-password \
-    --gecos "Default user" \
-    ${NB_USER}
-RUN chown -R ${NB_USER} ${HOME}
-USER ${NB_USER}
+RUN chown -R developer ${HOME}
+USER developer
 
-WORKDIR ${HOME}
+WORKDIR $HOME
 RUN pip install --user --no-cache-dir notebook==5.*
 RUN pip install --user pandas
 RUN pip install --user ipykernel==4.7.0
 
-COPY JModelica_test.ipynb ${HOME}
+COPY JModelica_test.ipynb $HOME
 
 RUN jupyter trust JModelica_test.ipynb
