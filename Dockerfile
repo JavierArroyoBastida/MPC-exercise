@@ -10,7 +10,6 @@ ENV PYTHONPATH $PYTHONPATH:$JMODELICA_HOME/Python:$JMODELICA_HOME/Python/pymodel
 ENV PATH="/home/developer/.local/bin:${PATH}"
 
 ARG NB_USER=newUser
-ARG NB_UID=65534 
 ENV USER ${NB_USER}
 ENV NB_UID ${NB_UID}
 ENV HOME /home/${NB_USER}
@@ -18,9 +17,8 @@ ENV HOME /home/${NB_USER}
 USER root
 RUN adduser --disabled-password \
     --gecos "Default user" \
-    --uid ${NB_UID} \
     ${NB_USER}
-RUN chown -R ${NB_UID} ${HOME}
+RUN chown -R ${NB_USER} ${HOME}
 USER ${NB_USER}
 
 WORKDIR ${HOME}
