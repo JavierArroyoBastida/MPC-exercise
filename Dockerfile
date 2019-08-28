@@ -10,15 +10,11 @@ ENV PYTHONPATH $PYTHONPATH:$JMODELICA_HOME/Python:$JMODELICA_HOME/Python/pymodel
 ENV PATH="/home/developer/.local/bin:${PATH}"
 
 ENV HOME /home/developer
-
-USER root
-RUN chown -R developer $HOME
+WORKDIR $HOME
 USER developer
 
-WORKDIR $HOME
 RUN pip install --user --no-cache-dir notebook==5.*
 RUN pip install --user pandas
 RUN pip install --user ipykernel==4.7.0
 
 COPY JModelica_test.ipynb $HOME
-COPY JModelicaTest.ipynb $HOME
