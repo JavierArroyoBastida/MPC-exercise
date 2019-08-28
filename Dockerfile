@@ -12,7 +12,7 @@ ENV PATH="/home/developer/.local/bin:${PATH}"
 ENV HOME /home/developer
 
 USER root
-RUN chown -R developer ${HOME}
+RUN chown -R developer $HOME
 USER developer
 
 WORKDIR $HOME
@@ -21,5 +21,3 @@ RUN pip install --user pandas
 RUN pip install --user ipykernel==4.7.0
 
 COPY JModelica_test.ipynb $HOME
-
-RUN jupyter trust JModelica_test.ipynb
