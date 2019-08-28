@@ -7,9 +7,9 @@ ENV SUNDIALS_HOME $JMODELICA_HOME/ThirdParty/Sundials
 ENV SEPARATE_PROCESS_JVM /usr/lib/jvm/java-8-openjdk-amd64/
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 ENV PYTHONPATH $PYTHONPATH:$JMODELICA_HOME/Python:$JMODELICA_HOME/Python/pymodelica
-ENV PATH="/home/developer/.local/bin:${PATH}"
+ENV PATH="/home/jovyan/.local/bin:${PATH}"
 
-ARG NB_USER=newUser
+ARG NB_USER=jovyan
 ENV USER ${NB_USER}
 ENV NB_UID ${NB_UID}
 ENV HOME /home/${NB_USER}
