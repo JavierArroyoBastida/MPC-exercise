@@ -15,3 +15,4 @@ RUN pip install --user --no-cache-dir notebook==5.*
 RUN pip install --user pandas
 RUN pip install --user ipykernel==4.7.0
 
+COPY . $HOME
