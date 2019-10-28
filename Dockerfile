@@ -20,9 +20,10 @@ WORKDIR $HOME
 USER developer
 
 RUN git clone https://github.com/ibpsa/project1-boptest.git $HOME/BOPTEST
-ENV PYTHONPATH $PYTHONPATH:$HOME/BOPTEST
+ENV PYTHONPATH $PYTHONPATH:$HOME/BOPTEST:$HOME/BOPTEST/testcase2
 RUN pip install --user --no-cache-dir notebook==5.*
 RUN pip install --user pandas
+RUN pip install --user flask
 RUN pip install --user ipykernel==4.7.0
 
 COPY JModelica_test.ipynb $HOME
