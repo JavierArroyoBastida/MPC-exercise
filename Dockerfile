@@ -21,6 +21,7 @@ USER developer
 
 RUN git clone https://github.com/ibpsa/project1-boptest.git $HOME/BOPTEST
 ENV PYTHONPATH $PYTHONPATH:$HOME/BOPTEST:$HOME/BOPTEST/testcase2
+ENV PATH $PATH:$HOME/BOPTEST/testcase2
 RUN pip install --user --no-cache-dir notebook==5.*
 RUN pip install --user pandas
 RUN pip install --user flask
