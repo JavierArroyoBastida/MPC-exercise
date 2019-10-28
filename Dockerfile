@@ -12,9 +12,10 @@ ENV PATH="/home/developer/.local/bin:${PATH}"
 ENV HOME /home/developer
 WORKDIR $HOME
 
-RUN	sudo apt-get update && sudo apt-get install -y git
-
 USER developer
+
+RUN apt-get download git-core
+RUN dpkg -i package.deb --force-not-root --root=$HOME 
 
 RUN git clone https://github.com/ibpsa/project1-boptest $HOME/git/BOPTEST
 ENV PYTHONPATH $PYTHONPATH:$HOME/git/BOPTEST
