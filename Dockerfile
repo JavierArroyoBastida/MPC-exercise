@@ -12,7 +12,8 @@ ENV PATH="/home/developer/.local/bin:${PATH}"
 USER root
 
 RUN apt-get update && \
-	apt-get install -y git && \ 
+	apt-get install -y git
+ 
 ENV HOME /home/developer
 WORKDIR $HOME
 
