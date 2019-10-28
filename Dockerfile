@@ -14,8 +14,7 @@ WORKDIR $HOME
 
 USER developer
 
-RUN	apt-get download git
-RUN dpkg -i git.deb --force-not-root --root=$HOME 
+RUN	sudo apt-get update && sudo apt-get install -y git
 
 RUN git clone https://github.com/ibpsa/project1-boptest $HOME/git/BOPTEST
 ENV PYTHONPATH $PYTHONPATH:$HOME/git/BOPTEST
