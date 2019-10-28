@@ -18,4 +18,5 @@ RUN pip install --user pandas
 RUN pip install --user ipykernel==4.7.0
 
 COPY JModelica_test.ipynb $HOME
-RUN jupyter trust JModelica_test.ipynb
+COPY MPC_ecercise_Name_Surname.ipynb $HOME
+COPY fig $HOME
