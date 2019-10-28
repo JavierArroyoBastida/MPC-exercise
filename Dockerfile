@@ -12,9 +12,9 @@ ENV PATH="/home/developer/.local/bin:${PATH}"
 ENV HOME /home/developer
 WORKDIR $HOME
 
-USER developer
-
 RUN	sudo apt-get update && sudo apt-get install -y git
+
+USER developer
 
 RUN git clone https://github.com/ibpsa/project1-boptest $HOME/git/BOPTEST
 ENV PYTHONPATH $PYTHONPATH:$HOME/git/BOPTEST
