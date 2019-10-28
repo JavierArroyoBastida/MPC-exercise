@@ -14,9 +14,6 @@ WORKDIR $HOME
 
 USER developer
 
-RUN apt-get download git-core
-RUN dpkg -i package.deb --force-not-root --root=$HOME 
-
 RUN git clone https://github.com/ibpsa/project1-boptest $HOME/git/BOPTEST
 ENV PYTHONPATH $PYTHONPATH:$HOME/git/BOPTEST
 RUN pip install --user --no-cache-dir notebook==5.*
