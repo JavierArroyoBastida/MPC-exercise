@@ -9,10 +9,16 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 ENV PYTHONPATH $PYTHONPATH:$JMODELICA_HOME/Python:$JMODELICA_HOME/Python/pymodelica
 ENV PATH="/home/developer/.local/bin:${PATH}"
 
+USER root
+
+RUN apt-get update && \
+	apt-get install -y git && \ 
 ENV HOME /home/developer
 WORKDIR $HOME
+
 USER developer
 
+RUN git clone https://github.com/ibpsa/project1-boptest.git
 RUN pip install --user --no-cache-dir notebook==5.*
 RUN pip install --user pandas
 RUN pip install --user ipykernel==4.7.0
