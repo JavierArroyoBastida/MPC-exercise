@@ -19,11 +19,11 @@ WORKDIR $HOME
 
 USER developer
 
-RUN git clone https://github.com/ibpsa/project1-boptest.git
+RUN git clone https://github.com/ibpsa/project1-boptest.git $HOME/BOPTEST
 RUN pip install --user --no-cache-dir notebook==5.*
 RUN pip install --user pandas
 RUN pip install --user ipykernel==4.7.0
 
 COPY JModelica_test.ipynb $HOME
 COPY MPC_ecercise_Name_Surname.ipynb $HOME
-COPY fig $HOME
+COPY fig $HOME/fig
