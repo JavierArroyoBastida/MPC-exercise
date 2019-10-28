@@ -13,9 +13,15 @@ ENV HOME /home/developer
 WORKDIR $HOME
 USER developer
 
+RUN apt-get update && \
+	apt-get install -y git
+RUN git clone https://github.com/ibpsa/project1-boptest $HOME/git/BOPTEST
+ENV PYTHONPATH $PYTHONPATH:$HOME/git/BOPTEST
+
 RUN pip install --user --no-cache-dir notebook==5.*
 RUN pip install --user pandas
 RUN pip install --user ipykernel==4.7.0
 
 COPY JModelica_test.ipynb $HOME
-RUN jupyter trust JModelica_test.ipynb
+COPY MPC_ecercise_Name_Surname.ipynb $HOME
+COPY fig $HOME
