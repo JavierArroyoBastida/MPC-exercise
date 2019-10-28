@@ -20,6 +20,7 @@ WORKDIR $HOME
 USER developer
 
 RUN git clone https://github.com/ibpsa/project1-boptest.git $HOME/BOPTEST
+ENV PYTHONPATH $PYTHONPATH:$HOME/BOPTEST
 RUN pip install --user --no-cache-dir notebook==5.*
 RUN pip install --user pandas
 RUN pip install --user ipykernel==4.7.0
